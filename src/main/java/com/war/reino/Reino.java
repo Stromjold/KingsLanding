@@ -46,9 +46,6 @@ public class Reino implements ModInitializer {
                         // Comparamos el texto (Ojo: distingue mayúsculas y minúsculas)
                         if (nombre.equals("Leñador")) {
 
-                            // ¡BINGO! Encontramos a nuestro trabajador.
-                            // Aquí programaremos cómo busca los árboles.
-
                         }
                     }
                 }
