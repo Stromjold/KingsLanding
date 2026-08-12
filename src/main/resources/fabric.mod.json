@@ -17,10 +17,13 @@
 	"entrypoints": {
 		"main": [
 			"com.war.reino.Reino"
+		],
+		"client": [
+			"com.war.reino.ReinoClient"
 		]
 	},
 	"mixins": [
-		"reino.mixins.json"
+
 	],
 	"depends": {
 		"fabricloader": ">=0.19.3",

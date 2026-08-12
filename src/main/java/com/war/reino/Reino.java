@@ -1,54 +1,33 @@
 package com.war.reino;
 
-import com.war.reino.aldeanosrecolectoresdemadera.AldeanosRecolectoresMadera;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
-import net.minecraft.server.level.ServerPlayer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import com.war.reino.mineros.MineroEntity;
+import com.war.reino.mineros.EntidadesReino;
+import com.war.reino.mineros.EventosReino;
+import com.war.reino.mineros.ComandosReino;
+
+import com.war.reino.Constructores.Constructor;
 
 public class Reino implements ModInitializer {
-    public static final String MOD_ID = "reino";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger("reino");
 
     @Override
     public void onInitialize() {
-        LOGGER.info("¡El mod del Reino ha despertado!");
+        LOGGER.info("¡El mod del Reino se está inicializando!");
 
-        Set<UUID> jugadoresQueYaVieronElMensaje = new HashSet<>();
-        AldeanosRecolectoresMadera recolectores = new AldeanosRecolectoresMadera();
-        recolectores.register();
+        EntidadesReino.registrarEntidades();
+        EventosReino.registrarEventos();
+        ComandosReino.registrarComandos();
 
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-            LOGGER.info("¡El mundo del Reino ha cargado correctamente!");
-            for (ServerPlayer jugador : server.getPlayerList().getPlayers()) {
-                jugador.sendSystemMessage(Component.literal("¡El mundo del Reino ha cargado correctamente!"), false);
-            }
-        });
-
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            ServerPlayer jugador = handler.player;
-            jugador.sendSystemMessage(Component.literal("¡Bienvenido al Reino! Escribe talar para activar a los leñadores."), false);
-            jugadoresQueYaVieronElMensaje.add(jugador.getUUID());
-        });
-
-        ServerMessageEvents.CHAT_MESSAGE.register((message, sender, params) -> {
-            String texto = message.signedContent().trim();
-            if (texto.equalsIgnoreCase("reino")) {
-                sender.sendSystemMessage(Component.literal("¡El mod del Reino ha despertado!"), false);
-            }
-        });
-    }
-
-    public static Identifier id(String path) {
-        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+        FabricDefaultAttributeRegistry.register(EntidadesReino.MINERO, MineroEntity.crearAtributos());
+        FabricDefaultAttributeRegistry.register(EntidadesReino.CONSTRUCTOR, Constructor.crearAtributos());
+        FabricDefaultAttributeRegistry.register(EntidadesReino.ESPADACHIN, Espadachin.crearAtributos());
+        FabricDefaultAttributeRegistry.register(EntidadesReino.ARQUERO, Arquero.crearAtributos());
+        FabricDefaultAttributeRegistry.register(EntidadesReino.CABALLERIA, Caballeria.crearAtributos());
     }
 }

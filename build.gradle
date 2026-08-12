@@ -33,7 +33,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 25
+	it.options.release = 17
 }
 
 java {
@@ -42,14 +42,13 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_25
-	targetCompatibility = JavaVersion.VERSION_25
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
-	destinationDirectory = layout.buildDirectory.dir("libs")
 
 	from("LICENSE") {
 		rename { "${it}_$projectName"}
@@ -72,3 +71,4 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+

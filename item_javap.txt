@@ -1,0 +1,185 @@
+Compiled from "Item.java"
+public class net.minecraft.world.item.Item implements net.minecraft.world.level.ItemLike,net.minecraft.world.flag.FeatureElement,net.fabricmc.fabric.api.item.v1.FabricItem {
+  public static final com.mojang.serialization.Codec<net.minecraft.core.Holder<net.minecraft.world.item.Item>> CODEC;
+    descriptor: Lcom/mojang/serialization/Codec;
+  public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.core.Holder<net.minecraft.world.item.Item>> STREAM_CODEC;
+    descriptor: Lnet/minecraft/network/codec/StreamCodec;
+  public static final com.mojang.serialization.Codec<net.minecraft.core.Holder<net.minecraft.world.item.Item>> CODEC_WITH_BOUND_COMPONENTS;
+    descriptor: Lcom/mojang/serialization/Codec;
+  private static final org.slf4j.Logger LOGGER;
+    descriptor: Lorg/slf4j/Logger;
+  public static final java.util.Map<net.minecraft.world.level.block.Block, net.minecraft.world.item.Item> BY_BLOCK;
+    descriptor: Ljava/util/Map;
+  public static final net.minecraft.resources.Identifier BASE_ATTACK_DAMAGE_ID;
+    descriptor: Lnet/minecraft/resources/Identifier;
+  public static final net.minecraft.resources.Identifier BASE_ATTACK_SPEED_ID;
+    descriptor: Lnet/minecraft/resources/Identifier;
+  public static final int DEFAULT_MAX_STACK_SIZE;
+    descriptor: I
+  public static final int ABSOLUTE_MAX_STACK_SIZE;
+    descriptor: I
+  public static final int MAX_BAR_WIDTH;
+    descriptor: I
+  protected static final int APPROXIMATELY_INFINITE_USE_DURATION;
+    descriptor: I
+  private final net.minecraft.core.Holder$Reference<net.minecraft.world.item.Item> builtInRegistryHolder;
+    descriptor: Lnet/minecraft/core/Holder$Reference;
+  private final net.minecraft.world.item.ItemStackTemplate craftingRemainingItem;
+    descriptor: Lnet/minecraft/world/item/ItemStackTemplate;
+  protected final java.lang.String descriptionId;
+    descriptor: Ljava/lang/String;
+  private final net.minecraft.world.flag.FeatureFlagSet requiredFeatures;
+    descriptor: Lnet/minecraft/world/flag/FeatureFlagSet;
+  public static int getId(net.minecraft.world.item.Item);
+    descriptor: (Lnet/minecraft/world/item/Item;)I
+
+  public static net.minecraft.world.item.Item byId(int);
+    descriptor: (I)Lnet/minecraft/world/item/Item;
+
+  public static net.minecraft.world.item.Item byBlock(net.minecraft.world.level.block.Block);
+    descriptor: (Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/world/item/Item;
+
+  public net.minecraft.world.item.Item(net.minecraft.world.item.Item$Properties);
+    descriptor: (Lnet/minecraft/world/item/Item$Properties;)V
+
+  public net.minecraft.core.Holder$Reference<net.minecraft.world.item.Item> builtInRegistryHolder();
+    descriptor: ()Lnet/minecraft/core/Holder$Reference;
+
+  public net.minecraft.core.component.DataComponentMap components();
+    descriptor: ()Lnet/minecraft/core/component/DataComponentMap;
+
+  public int getDefaultMaxStackSize();
+    descriptor: ()I
+
+  public void onUseTick(net.minecraft.world.level.Level, net.minecraft.world.entity.LivingEntity, net.minecraft.world.item.ItemStack, int);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;I)V
+
+  public void onDestroyed(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)V
+
+  public boolean canDestroyBlock(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/LivingEntity;)Z
+
+  public net.minecraft.world.item.Item asItem();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+
+  public net.minecraft.world.InteractionResult useOn(net.minecraft.world.item.context.UseOnContext);
+    descriptor: (Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;
+
+  public float getDestroySpeed(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/block/state/BlockState;)F
+
+  public net.minecraft.world.InteractionResult use(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;
+
+  public net.minecraft.world.item.ItemStack finishUsingItem(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/item/ItemStack;
+
+  public boolean isBarVisible(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+
+  public int getBarWidth(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)I
+
+  public int getBarColor(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)I
+
+  public boolean overrideStackedOnOther(net.minecraft.world.item.ItemStack, net.minecraft.world.inventory.Slot, net.minecraft.world.inventory.ClickAction, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/inventory/Slot;Lnet/minecraft/world/inventory/ClickAction;Lnet/minecraft/world/entity/player/Player;)Z
+
+  public boolean overrideOtherStackedOnMe(net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack, net.minecraft.world.inventory.Slot, net.minecraft.world.inventory.ClickAction, net.minecraft.world.entity.player.Player, net.minecraft.world.entity.SlotAccess);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/inventory/Slot;Lnet/minecraft/world/inventory/ClickAction;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/SlotAccess;)Z
+
+  public float getAttackDamageBonus(net.minecraft.world.entity.Entity, float, net.minecraft.world.damagesource.DamageSource);
+    descriptor: (Lnet/minecraft/world/entity/Entity;FLnet/minecraft/world/damagesource/DamageSource;)F
+
+  public net.minecraft.world.damagesource.DamageSource getItemDamageSource(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/damagesource/DamageSource;
+
+  public void hurtEnemy(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)V
+
+  public void postHurtEnemy(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)V
+
+  public boolean mineBlock(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/LivingEntity;)Z
+
+  public boolean isCorrectToolForDrops(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/block/state/BlockState;)Z
+
+  public net.minecraft.world.InteractionResult interactLivingEntity(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.player.Player, net.minecraft.world.entity.LivingEntity, net.minecraft.world.InteractionHand);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public final net.minecraft.world.item.ItemStackTemplate getCraftingRemainder();
+    descriptor: ()Lnet/minecraft/world/item/ItemStackTemplate;
+
+  public void inventoryTick(net.minecraft.world.item.ItemStack, net.minecraft.server.level.ServerLevel, net.minecraft.world.entity.Entity, net.minecraft.world.entity.EquipmentSlot);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/EquipmentSlot;)V
+
+  public void onCraftedBy(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)V
+
+  public void onCraftedPostProcess(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;)V
+
+  public net.minecraft.world.item.ItemUseAnimation getUseAnimation(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemUseAnimation;
+
+  public int getUseDuration(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;)I
+
+  public boolean releaseUsing(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.entity.LivingEntity, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)Z
+
+  public void appendHoverText(net.minecraft.world.item.ItemStack, net.minecraft.world.item.Item$TooltipContext, net.minecraft.world.item.component.TooltipDisplay, java.util.function.Consumer<net.minecraft.network.chat.Component>, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/item/component/TooltipDisplay;Ljava/util/function/Consumer;Lnet/minecraft/world/item/TooltipFlag;)V
+
+  public java.util.Optional<net.minecraft.world.inventory.tooltip.TooltipComponent> getTooltipImage(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/util/Optional;
+
+  public final java.lang.String getDescriptionId();
+    descriptor: ()Ljava/lang/String;
+
+  public net.minecraft.network.chat.Component getName(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/network/chat/Component;
+
+  public boolean isFoil(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+
+  protected static net.minecraft.world.phys.BlockHitResult getPlayerPOVHitResult(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, net.minecraft.world.level.ClipContext$Fluid);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/ClipContext$Fluid;)Lnet/minecraft/world/phys/BlockHitResult;
+
+  public boolean useOnRelease(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+
+  public net.minecraft.world.item.ItemStack getDefaultInstance();
+    descriptor: ()Lnet/minecraft/world/item/ItemStack;
+
+  public boolean canFitInsideContainerItems();
+    descriptor: ()Z
+
+  public final net.minecraft.world.flag.FeatureFlagSet requiredFeatures();
+    descriptor: ()Lnet/minecraft/world/flag/FeatureFlagSet;
+
+  public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)Z
+
+  private static com.mojang.serialization.DataResult lambda$static$2(net.minecraft.core.Holder);
+    descriptor: (Lnet/minecraft/core/Holder;)Lcom/mojang/serialization/DataResult;
+
+  private static java.lang.String lambda$static$3(net.minecraft.core.Holder);
+    descriptor: (Lnet/minecraft/core/Holder;)Ljava/lang/String;
+
+  private static com.mojang.serialization.DataResult lambda$static$0(net.minecraft.core.Holder);
+    descriptor: (Lnet/minecraft/core/Holder;)Lcom/mojang/serialization/DataResult;
+
+  private static java.lang.String lambda$static$1();
+    descriptor: ()Ljava/lang/String;
+
+  static {};
+    descriptor: ()V
+}
