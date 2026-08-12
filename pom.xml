@@ -1,0 +1,53 @@
+<!--
+  Archivo pom.xml esqueleto generado automáticamente.
+
+  NOTA IMPORTANTE:
+  - Los mods de Fabric normalmente usan Gradle + fabric-loom. Crear un pom.xml funcional para Fabric/Minecraft es posible pero requiere configurar repositorios y dependencias específicas (mappings, yarn, Minecraft, fabric-loader, fabric-api, etc.).
+  - Este pom.xml es un punto de partida: configura Java y el plugin de compilación. Para compilar correctamente necesitarás añadir los repositorios y dependencias concretas del entorno Fabric/Minecraft o migrar a Gradle/fabric-loom.
+
+  Instrucciones sugeridas:
+  1) Si prefieres seguir con Maven: añade repositorios y dependencias de Fabric/Minecraft (consulta la documentación de fabric-loom o usa un ejemplo de pom específico para Fabric).
+  2) Alternativa recomendada: usar Gradle con fabric-loom (más directo y soportado oficialmente).
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.war</groupId>
+    <artifactId>KingsLanding</artifactId>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--
+      Ejemplo de sección <repositories> y <dependencies> que deberás completar para Fabric/Minecraft.
+      No se incluyen valores concretos aquí porque las versiones/mappings/artefactos dependen de la versión de Minecraft y del flujo de trabajo (Gradle/fabric-loom es recomendado).
+    -->
+
+    <repositories>
+        <!-- Añade aquí los repositorios necesarios (ej. maven.fabricmc.net, maven.minecraftforge.net, etc.) -->
+    </repositories>
+
+    <dependencies>
+        <!-- Añade aquí las dependencias de Minecraft/Fabric que tu mod necesita (yarn/mappings, minecraft, fabric-loader, fabric-api, etc.) -->
+    </dependencies>
+</project>

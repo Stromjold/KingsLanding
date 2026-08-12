@@ -49,6 +49,7 @@ java {
 jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
+	destinationDirectory = layout.buildDirectory.dir("libs")
 
 	from("LICENSE") {
 		rename { "${it}_$projectName"}
@@ -71,4 +72,3 @@ publishing {
 		// retrieving dependencies.
 	}
 }
-
